@@ -1,0 +1,25 @@
+
+backend:
+  name: github
+  repo: redzismay/slaugo-stiltas
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "lt"
+
+collections:
+  - name: "teikejai"
+    label: "Paslaugų teikėjai"
+    folder: "_teikejai"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Vardas", name: "name", widget: "string" }
+      - { label: "Miestas / rajonas", name: "city", widget: "string" }
+      - { label: "Kategorija", name: "category", widget: "select", options: ["Profesionali slauga ir socialinė priežiūra", "Pagalba buityje ir draugija"] }
+      - { label: "Aprašymas", name: "description", widget: "text" }
+      - { label: "Gali pavėžėti", name: "transport", widget: "boolean", default: false }
+      - { label: "Telefonas", name: "phone", widget: "string", required: false }
+      - { label: "El. paštas", name: "email", widget: "string", required: false }
