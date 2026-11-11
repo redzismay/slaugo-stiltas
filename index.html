@@ -20,4 +20,18 @@ form.addEventListener('submit',async e=>{
  }catch(err){message.textContent='Nepavyko išsiųsti. Patikrinkite interneto ryšį ir bandykite dar kartą.';}
  finally{submit.disabled=false;submit.textContent='Registruotis';}
 });
+
+async function loadProviders() {
+  try {
+    const response = await fetch('/providers.json');
+    if (!response.ok) throw new Error('Nepavyko gauti duomenų');
+    const providers = await response.json();
+    console.log('Paslaugų teikėjai:', providers);
+  } catch (error) {
+    console.error('Nepavyko įkelti teikėjų:', error);
+  }
+}
+loadProviders();
+
 </script></body></html>
+
