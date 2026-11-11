@@ -1,1 +1,13 @@
-[]
+
+[
+  {
+    "name": "Bandomasis teikėjas",
+    "city": "Joniškis",
+    "category": "Pagalba buityje ir draugija",
+    "description": "Padeda apsipirkti, atlikti buities darbus ir palaiko draugiją.",
+    "transport": true,
+    "phone": "",
+    "email": ""
+  }
+]
+
