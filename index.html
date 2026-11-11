@@ -26,7 +26,35 @@ async function loadProviders() {
     const response = await fetch('/providers.json');
     if (!response.ok) throw new Error('Nepavyko gauti duomenų');
     const providers = await response.json();
-    console.log('Paslaugų teikėjai:', providers);
+    
+const container = document.querySelector('#cards');
+container.innerHTML = '';
+
+providers.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'provider';
+
+  const title = document.createElement('h3');
+  title.textContent = p.name;
+
+  const city = document.createElement('p');
+  city.textContent = p.city;
+
+  const category = document.createElement('p');
+  category.textContent = p.category;
+
+  const description = document.createElement('p');
+  description.textContent = p.description;
+
+  const transport = document.createElement('p');
+  transport.textContent = p.transport
+    ? '🚗 Gali pavėžėti'
+    : 'Pavėžėjimo nėra';
+
+  card.append(title, city, category, description, transport);
+  container.appendChild(card);
+});
+
   } catch (error) {
     console.error('Nepavyko įkelti teikėjų:', error);
   }
