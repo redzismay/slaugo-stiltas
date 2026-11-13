@@ -23,4 +23,14 @@ form.addEventListener('submit',async e=>{
 
 const inquiryForm=document.querySelector('#inquiryForm'),inquiryMsg=document.querySelector('#inquiryMsg'),inquirySubmit=document.querySelector('#inquirySubmit');
 inquiryForm.addEventListener('submit',async e=>{e.preventDefault();if(!inquiryForm.reportValidity())return;inquirySubmit.disabled=true;inquirySubmit.textContent='Siunčiama…';inquiryMsg.textContent='';try{const response=await fetch('/',{method:'POST',body:new FormData(inquiryForm)});if(!response.ok)throw new Error('HTTP '+response.status);inquiryMsg.textContent='Ačiū! Jūsų užklausa išsiųsta svetainės administratoriui.';inquiryForm.reset();}catch(err){inquiryMsg.textContent='Užklausos išsiųsti nepavyko. Bandykite dar kartą arba rašykite el. paštu.';}finally{inquirySubmit.disabled=false;inquirySubmit.textContent='Siųsti užklausą';}});
-</script></body></html>
+</script>
+<div style="text-align:center;background:#153b4a;padding:18px">
+  <a href="/privatumas.html" style="color:white">
+    Privatumo politika
+  </a>
+  &nbsp; | &nbsp;
+  <a href="/taisykles.html" style="color:white">
+    Naudojimosi taisyklės
+  </a>
+</div>
+</body></html>
